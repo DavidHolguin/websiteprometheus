@@ -1,12 +1,15 @@
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { EmberGlow } from "@/components/primitives/ember-glow";
 import { GrainOverlay } from "@/components/primitives/grain-overlay";
+import { LeadForm } from "@/components/primitives/lead-form";
 import { Button } from "@/components/ui/button";
-import { ctaFinal } from "@/lib/content";
+import { ctaFinal, whatsappUrl } from "@/lib/content";
 
 export function CtaFinal() {
+  const waMessage = "Hola Prometheus, quiero conversar sobre agentes IA para mi empresa.";
+
   return (
     <section
       id="contacto"
@@ -16,7 +19,7 @@ export function CtaFinal() {
       <EmberGlow intensity="strong" position="center" className="-z-10" />
       <GrainOverlay />
 
-      <Container className="relative py-28 sm:py-36 lg:py-44">
+      <Container className="relative py-28 sm:py-32 lg:py-40">
         <Reveal>
           <div className="flex flex-col items-center gap-8 text-center">
             <div className="inline-flex items-center gap-2.5">
@@ -41,20 +44,25 @@ export function CtaFinal() {
               {ctaFinal.description}
             </p>
 
-            <div className="mt-4 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <div className="mt-2 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <a href={ctaFinal.primary.href} target="_blank" rel="noopener noreferrer">
-                  {ctaFinal.primary.label}
+                <a href={whatsappUrl(waMessage)} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle />
+                  Escribir por WhatsApp
                   <ArrowRight />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <a href={ctaFinal.secondary.href}>
-                  <Mail />
-                  Escribir por correo
-                </a>
-              </Button>
             </div>
+
+            <div className="mt-6 flex w-full max-w-xl items-center gap-3">
+              <span aria-hidden className="h-px flex-1 bg-border" />
+              <span className="text-xs font-mono uppercase tracking-[0.18em] text-subtle">
+                o déjanos tu contacto
+              </span>
+              <span aria-hidden className="h-px flex-1 bg-border" />
+            </div>
+
+            <LeadForm source="Prometheus Labs · Home" className="w-full max-w-xl text-left" />
           </div>
         </Reveal>
       </Container>

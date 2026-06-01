@@ -7,7 +7,14 @@ export const site = {
   url: "https://prometheuslabs.com.co",
   locale: "es_CO",
   contact: {
+    /** Buzón al que llegan los leads del formulario (vía Resend). */
     email: "ceo@prometheuslabs.com.co",
+    /** Número de WhatsApp comercial. */
+    whatsapp: "3145042604",
+    /** Misma cifra con prefijo país, sin signos — formato wa.me. */
+    whatsappRaw: "573145042604",
+    /** Display público bonito. */
+    whatsappDisplay: "+57 314 504 2604",
     calendarUrl: "https://cal.com/prometheuslabs/intro",
     location: "Colombia",
   },
@@ -17,6 +24,15 @@ export const site = {
     x: "https://x.com/prometheuslabs",
   },
 };
+
+/**
+ * Construye un enlace `wa.me` con un mensaje pre-llenado.
+ * Cuando el usuario hace click, WhatsApp se abre con el texto listo
+ * para enviar — solo tiene que tocar el botón de enviar.
+ */
+export function whatsappUrl(message: string): string {
+  return `https://wa.me/${site.contact.whatsappRaw}?text=${encodeURIComponent(message)}`;
+}
 
 export const nav = {
   links: [
@@ -238,12 +254,7 @@ export const ctaFinal = {
   eyebrow: "Conversemos",
   title: "Listos para entregar el fuego.",
   description:
-    "Una llamada de 30 minutos. Sin agenda comercial. Si hay encaje, seguimos; si no, te dejamos las recomendaciones que aplicarías sin nosotros.",
-  primary: { label: "Agendar 30 minutos", href: "https://cal.com/prometheuslabs/intro" },
-  secondary: {
-    label: "Escribir a ceo@prometheuslabs.com.co",
-    href: "mailto:ceo@prometheuslabs.com.co",
-  },
+    "Una conversación rápida por WhatsApp o déjanos tu contacto. Si hay encaje, seguimos; si no, te dejamos las recomendaciones que aplicarías sin nosotros.",
 };
 
 export const footer = {

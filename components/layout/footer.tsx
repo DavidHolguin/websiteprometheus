@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { footer, site } from "@/lib/content";
+import { footer, site, whatsappUrl } from "@/lib/content";
 import { Container } from "./container";
 import { Logo } from "./logo";
 
@@ -39,15 +39,21 @@ export function Footer() {
               <ul className="flex flex-col gap-2.5">
                 <li>
                   <a
-                    href={`mailto:${site.contact.email}`}
+                    href={whatsappUrl(
+                      "Hola Prometheus, vengo del footer del sitio. Quiero conversar.",
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {site.contact.email}
+                    WhatsApp {site.contact.whatsappDisplay}
                   </a>
                 </li>
                 <li>
                   <a
                     href={site.contact.calendarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Agendar llamada
