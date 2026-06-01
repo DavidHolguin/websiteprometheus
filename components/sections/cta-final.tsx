@@ -1,9 +1,10 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { EmberGlow } from "@/components/primitives/ember-glow";
 import { GrainOverlay } from "@/components/primitives/grain-overlay";
 import { LeadForm } from "@/components/primitives/lead-form";
+import { WhatsAppIcon } from "@/components/primitives/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { ctaFinal, whatsappUrl } from "@/lib/content";
 
@@ -47,7 +48,7 @@ export function CtaFinal() {
             <div className="mt-2 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <Button asChild size="lg" className="w-full sm:w-auto">
                 <a href={whatsappUrl(waMessage)} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle />
+                  <WhatsAppIcon className="h-4 w-4" />
                   Escribir por WhatsApp
                   <ArrowRight />
                 </a>

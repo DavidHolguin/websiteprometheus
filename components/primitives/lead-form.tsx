@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowRight, Loader2, MessageCircle } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useActionState } from "react";
 import { type LeadState, submitLead } from "@/app/actions";
+import { WhatsAppIcon } from "@/components/primitives/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { site, whatsappUrl } from "@/lib/content";
 
@@ -35,8 +36,8 @@ export function LeadForm({
         className={`rounded-2xl border border-ember/40 bg-ember-soft/40 p-7 text-center ${className ?? ""}`}
         role="status"
       >
-        <div className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-ember/20 text-ember">
-          <MessageCircle className="h-5 w-5" />
+        <div className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
+          <WhatsAppIcon className="h-5 w-5" />
         </div>
         <h3 className="text-lg font-semibold text-foreground">Recibimos tu contacto.</h3>
         <p className="mt-2 text-sm text-muted-foreground text-pretty leading-relaxed">
@@ -48,7 +49,7 @@ export function LeadForm({
           rel="noopener noreferrer"
           className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ember-bright hover:text-ember transition-colors"
         >
-          <MessageCircle className="h-4 w-4" />
+          <WhatsAppIcon className="h-4 w-4" />
           Abrir conversación en WhatsApp
           <ArrowRight className="h-4 w-4" />
         </a>
