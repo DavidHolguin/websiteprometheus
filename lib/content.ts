@@ -20,12 +20,13 @@ export const site = {
 
 export const nav = {
   links: [
-    { href: "#servicios", label: "Servicios" },
-    { href: "#proceso", label: "Proceso" },
-    { href: "#manifiesto", label: "Manifiesto" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "/agentes", label: "Agentes" },
+    { href: "/#servicios", label: "Servicios" },
+    { href: "/#proceso", label: "Proceso" },
+    { href: "/#manifiesto", label: "Manifiesto" },
+    { href: "/#contacto", label: "Contacto" },
   ],
-  cta: { href: "#contacto", label: "Conversemos" },
+  cta: { href: "/#contacto", label: "Conversemos" },
 };
 
 export const hero = {
