@@ -1,3 +1,9 @@
+# Este repo es de un solo paquete. La clave `packages` es obligatoria para
+# pnpm 9 (el que instalan las plataformas de build): sin ella cualquier comando
+# aborta con «packages field missing or empty».
+packages:
+  - "."
+
 allowBuilds:
   sharp: true
   "@tailwindcss/oxide": true
