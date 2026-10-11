@@ -13,7 +13,10 @@ export function AgentTeamMembers({ agent }: AgentTeamMembersProps) {
   if (!agent.teamMembers || agent.teamMembers.length === 0) return null;
 
   return (
-    <section className="relative py-24 sm:py-32 lg:py-40" aria-labelledby="agent-team-title">
+    <section
+      className="relative scroll-mt-24 py-14 sm:py-20 lg:py-24"
+      aria-labelledby="agent-team-title"
+    >
       <Container>
         <Reveal>
           <SectionHeading
@@ -27,7 +30,7 @@ export function AgentTeamMembers({ agent }: AgentTeamMembersProps) {
           />
         </Reveal>
 
-        <Stagger as="ul" className="mt-16 grid gap-5 md:grid-cols-3 lg:gap-6">
+        <Stagger as="ul" className="mt-9 grid gap-5 sm:mt-12 md:grid-cols-3 lg:gap-6">
           {agent.teamMembers.map((member, idx) => (
             <StaggerItem
               as="li"

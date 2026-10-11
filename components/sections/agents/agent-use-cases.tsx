@@ -12,7 +12,7 @@ interface AgentUseCasesProps {
 export function AgentUseCases({ agent }: AgentUseCasesProps) {
   return (
     <section
-      className="relative border-t border-border bg-card/30 py-24 sm:py-32 lg:py-40"
+      className="relative scroll-mt-24 border-t border-border bg-card/30 py-14 sm:py-20 lg:py-24"
       aria-labelledby="agent-use-cases-title"
     >
       <Container>
@@ -24,7 +24,7 @@ export function AgentUseCases({ agent }: AgentUseCasesProps) {
           />
         </Reveal>
 
-        <Stagger as="div" className="mt-16 flex flex-col gap-5">
+        <Stagger as="div" className="mt-9 flex flex-col gap-5 sm:mt-12">
           {agent.useCases.map((useCase) => (
             <BeforeAfter
               key={useCase.title}

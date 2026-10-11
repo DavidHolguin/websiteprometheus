@@ -26,7 +26,7 @@ export function AgentCta({ agent }: AgentCtaProps) {
       <EmberGlow intensity="strong" position="center" className="-z-10" />
       <GrainOverlay />
 
-      <Container className="relative py-28 sm:py-32 lg:py-40">
+      <Container className="relative py-16 sm:py-20 lg:py-24">
         <Reveal>
           <div className="flex flex-col items-center gap-8 text-center">
             <div className="inline-flex items-center gap-2.5">

@@ -10,7 +10,10 @@ interface AgentMetricsProps {
 
 export function AgentMetrics({ agent }: AgentMetricsProps) {
   return (
-    <section className="relative py-24 sm:py-32 lg:py-40" aria-labelledby="agent-metrics-title">
+    <section
+      className="relative scroll-mt-24 py-14 sm:py-20 lg:py-24"
+      aria-labelledby="agent-metrics-title"
+    >
       <Container>
         <Reveal>
           <SectionHeading
@@ -22,7 +25,7 @@ export function AgentMetrics({ agent }: AgentMetricsProps) {
           />
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-2xl border border-border bg-card/40 overflow-hidden">
+        <div className="mt-9 grid grid-cols-1 sm:mt-12 md:grid-cols-2 lg:grid-cols-4 rounded-2xl border border-border bg-card/40 overflow-hidden">
           {agent.metrics.map((metric) => (
             <Metric key={metric.label} value={metric.value} label={metric.label} />
           ))}

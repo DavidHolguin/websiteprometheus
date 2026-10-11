@@ -13,7 +13,7 @@ export function AgentCapabilities({ agent }: AgentCapabilitiesProps) {
   return (
     <section
       id="capabilities"
-      className="relative py-24 sm:py-32 lg:py-40"
+      className="relative scroll-mt-24 py-14 sm:py-20 lg:py-24"
       aria-labelledby="agent-capabilities-title"
     >
       <Container>
@@ -25,7 +25,10 @@ export function AgentCapabilities({ agent }: AgentCapabilitiesProps) {
           />
         </Reveal>
 
-        <Stagger as="div" className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <Stagger
+          as="div"
+          className="mt-9 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+        >
           {agent.capabilities.map((cap) => (
             <CapabilityCard
               key={cap.title}

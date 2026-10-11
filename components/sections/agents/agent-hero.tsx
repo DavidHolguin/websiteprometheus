@@ -21,7 +21,7 @@ export function AgentHero({ agent }: AgentHeroProps) {
 
   return (
     <section
-      className="relative isolate flex min-h-[80vh] items-center pt-32 sm:pt-36 pb-16 overflow-hidden"
+      className="relative isolate flex flex-col justify-center overflow-hidden pt-28 sm:pt-36 pb-14 sm:pb-20 lg:min-h-[84svh] lg:pb-24"
       aria-labelledby="agent-hero-title"
     >
       <EmberGlow intensity="strong" position="center" className="-z-10" />

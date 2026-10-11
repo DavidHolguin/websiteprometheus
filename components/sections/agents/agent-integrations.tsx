@@ -12,7 +12,7 @@ interface AgentIntegrationsProps {
 export function AgentIntegrations({ agent }: AgentIntegrationsProps) {
   return (
     <section
-      className="relative border-t border-border bg-card/30 py-24 sm:py-32 lg:py-40"
+      className="relative scroll-mt-24 border-t border-border bg-card/30 py-14 sm:py-20 lg:py-24"
       aria-labelledby="agent-integrations-title"
     >
       <Container>
@@ -24,7 +24,7 @@ export function AgentIntegrations({ agent }: AgentIntegrationsProps) {
           />
         </Reveal>
 
-        <Stagger as="ul" className="mt-16 grid gap-6 md:grid-cols-2 lg:gap-8">
+        <Stagger as="ul" className="mt-9 grid gap-6 sm:mt-12 md:grid-cols-2 lg:gap-8">
           {agent.integrations.map((group) => (
             <StaggerItem
               as="li"
