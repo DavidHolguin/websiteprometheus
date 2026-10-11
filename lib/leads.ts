@@ -36,8 +36,8 @@ const CHATWOOT_TOKEN = process.env.CHATWOOT_API_TOKEN ?? "";
 const CHATWOOT_ACCOUNT = process.env.CHATWOOT_ACCOUNT_ID ?? "1";
 const CHATWOOT_INBOX = Number(process.env.CHATWOOT_INBOX_ID ?? "2");
 
-/** Etapa del embudo donde nace una oportunidad del sitio. */
-const ETAPA_NUEVA = "NEW";
+/** Primera etapa del embudo de servicios de la casa (`opportunity.stage`). */
+const ETAPA_NUEVA = "NUEVO";
 
 export interface Telefono {
   /** Número nacional sin prefijo (lo que espera Twenty). */
