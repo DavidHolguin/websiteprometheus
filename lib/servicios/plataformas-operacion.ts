@@ -21,13 +21,13 @@ export const plataformasOperacion: Servicio = {
   hero: {
     headline: "Un sistema que opera, no un formulario que se llena.",
     description:
-      "Construimos la plataforma donde tu operación trabaja de verdad: el estado de cada viaje, cupo, turno o caso; la evidencia desde el celular; los avisos automáticos; y la IA donde ya hay datos para decidir mejor.",
+      "Construimos la plataforma donde tu operación trabaja: el estado de cada viaje, cupo, turno o caso, la evidencia desde el celular, los avisos automáticos y la IA donde ya hay datos.",
   },
   problema: [
     {
       title: "La hoja que ya no aguanta",
       before:
-        "Todo el mundo mira la misma hoja, pero nadie sabe cuál es la última versión ni quién cambió el dato.",
+        "Todos miran la misma hoja, pero nadie sabe cuál es la última versión ni quién cambió el dato.",
       after:
         "Un solo lugar, un solo dueño del dato, con permisos por rol y una sola verdad para todos.",
     },
@@ -50,37 +50,37 @@ export const plataformasOperacion: Servicio = {
       icon: "CalendarCheck",
       title: "Programación y cupos",
       description:
-        "Agenda de rutas, turnos o visitas con capacidad real: el sistema impide sobrevender y avisa cuando algo se sale del plan.",
+        "Agenda rutas, turnos o visitas con cupo real: impide sobrevender y avisa si algo se sale del plan.",
     },
     {
       icon: "ListTodo",
       title: "Tableros operativos",
       description:
-        "Estado de cada frente en vivo: qué está pendiente, qué va en camino, qué se atrasó y quién responde por eso.",
+        "Estado de cada frente en vivo: qué está pendiente, qué va en camino, qué se atrasó y quién responde.",
     },
     {
       icon: "BookOpen",
       title: "Evidencia desde el móvil",
       description:
-        "Fotos, firmas, novedades y confirmación del cliente desde el teléfono, sin volver a la oficina a transcribir.",
+        "Fotos, firmas, novedades y confirmación del cliente desde el teléfono, sin volver a la oficina.",
     },
     {
       icon: "Send",
       title: "Avisos automáticos",
       description:
-        "Cliente y equipo reciben lo que necesitan, por WhatsApp o correo, en el momento en que el estado cambia.",
+        "Cliente y equipo reciben lo que necesitan por WhatsApp o correo cuando el estado cambia.",
     },
     {
       icon: "Sparkles",
       title: "Sugerencia con datos",
       description:
-        "La IA entra donde aporta: ordenar rutas, priorizar casos, anticipar demanda. Se mide y se apaga si no mejora la operación.",
+        "La IA entra donde aporta: ordenar rutas, priorizar casos, anticipar demanda. Se apaga si no mejora.",
     },
     {
       icon: "BadgeDollarSign",
       title: "Cartera y cobro",
       description:
-        "Cuánto se facturó, cuánto se debe y desde cuándo, visible para el área comercial y para el cliente.",
+        "Cuánto se facturó, cuánto se debe y desde cuándo, visible para el área comercial y el cliente.",
     },
   ],
   pasos: [
@@ -220,7 +220,7 @@ export const plataformasOperacion: Servicio = {
   cta: {
     titulo: "Cuéntanos cómo opera tu negocio hoy.",
     descripcion:
-      "Nos sentamos a entender la operación real —con las personas que la hacen— y salimos con un modelo, una primera fase y una métrica. Si lo que necesitas se resuelve con algo que ya existe, te lo decimos en esa misma reunión.",
+      "Nos sentamos a entender la operación real con quienes la hacen, y salimos con un modelo, una primera fase y una métrica. Si algo que ya existe lo resuelve, te lo decimos ahí mismo.",
     whatsapp: "Hola Prometheus, necesito una plataforma para mi operación.",
   },
 };

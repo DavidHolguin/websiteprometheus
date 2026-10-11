@@ -43,6 +43,19 @@ export const nav = {
     { href: "/#contacto", label: "Contacto" },
   ],
   cta: { href: "/#contacto", label: "Conversemos" },
+  /**
+   * Menú de una landing de servicio: quien ya está en la página no necesita
+   * que lo manden a otra — necesita llegar a la sección que le falta leer.
+   */
+  landing: {
+    links: [
+      { href: "#capacidades", label: "Qué incluye" },
+      { href: "#prueba", label: "Dónde funciona" },
+      { href: "#preguntas", label: "Preguntas" },
+      { href: "/servicios", label: "Servicios" },
+    ],
+    cta: { href: "#contacto", label: "Conversemos" },
+  },
 };
 
 export const hero = {

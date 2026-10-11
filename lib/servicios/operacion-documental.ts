@@ -20,7 +20,7 @@ export const operacionDocumental: Servicio = {
   hero: {
     headline: "Facturas y contratos que se procesan solos.",
     description:
-      "Un flujo que recibe los documentos, extrae los datos que importan, los valida contra tus reglas y los deja estructurados en tu base. Lo que no cuadra no se adivina: cae en una bandeja de revisión con el motivo escrito.",
+      "Un flujo que recibe los documentos, extrae los datos que importan, los valida contra tus reglas y los deja limpios en tu base. Lo que no cuadra no se adivina: cae en revisión con el motivo escrito.",
   },
   problema: [
     {
@@ -50,19 +50,19 @@ export const operacionDocumental: Servicio = {
       icon: "ScanLine",
       title: "Lectura de documentos",
       description:
-        "Recibe PDF, foto o escaneo, y extrae los campos que el negocio definió: proveedor, número, fechas, valores, impuestos, cláusulas.",
+        "Recibe PDF, foto o escaneo y extrae campos clave: proveedor, número, fechas, valores, impuestos, cláusulas.",
     },
     {
       icon: "ClipboardCheck",
       title: "Validación con reglas",
       description:
-        "Comprueba contra política y contra el sistema de origen: valores que no cuadran, proveedores inexistentes, duplicados, retenciones.",
+        "Valida contra política y sistema: valores que no cuadran, proveedores inexistentes, duplicados, retenciones.",
     },
     {
       icon: "FolderTree",
       title: "Bandeja de excepciones",
       description:
-        "Todo lo dudoso llega a una cola con el motivo y el documento al lado. Es donde debe estar el criterio humano, no en lo repetitivo.",
+        "Lo dudoso cae en una cola con el motivo y el documento al lado. Ahí va el criterio humano, no lo repetitivo.",
     },
     {
       icon: "FileSpreadsheet",
@@ -74,7 +74,7 @@ export const operacionDocumental: Servicio = {
       icon: "ListTodo",
       title: "Trazabilidad para auditoría",
       description:
-        "Cada documento tiene su bitácora: qué se leyó, qué se creyó, quién lo aprobó y cuándo. Escrito para que un auditor lo pueda seguir.",
+        "Cada documento tiene su bitácora: qué se leyó, quién lo aprobó y cuándo. Un auditor la puede seguir.",
     },
     {
       icon: "Repeat2",
@@ -216,7 +216,7 @@ export const operacionDocumental: Servicio = {
   cta: {
     titulo: "Mándanos cien documentos.",
     descripcion:
-      "Elige el tipo de documento que más te cuesta (facturas, contratos, soportes) y hacemos el diagnóstico con ellos: qué se puede extraer, qué queda en revisión y cuánto trabajo manual se quita. Con tus papeles, no con una demostración preparada.",
+      "Elige el tipo de documento que más te cuesta (facturas, contratos, soportes) y diagnosticamos con ellos: qué se extrae, qué queda en revisión y cuánto trabajo manual se quita. Con tus papeles, no con una demostración.",
     whatsapp: "Hola Prometheus, quiero automatizar el procesamiento de documentos.",
   },
 };

@@ -51,7 +51,9 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href={site.contact.calendarUrl}
+                    href={whatsappUrl(
+                      "Hola Prometheus, quiero agendar una llamada de treinta minutos.",
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"

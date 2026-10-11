@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ServicioArquitectura } from "@/components/sections/servicios/servicio-arquitectura";
+import { WhatsAppFab } from "@/components/primitives/whatsapp-fab";
 import { ServicioCapacidades } from "@/components/sections/servicios/servicio-capacidades";
 import { ServicioCta } from "@/components/sections/servicios/servicio-cta";
-import { ServicioEvidencia } from "@/components/sections/servicios/servicio-evidencia";
 import { ServicioFaqs } from "@/components/sections/servicios/servicio-faqs";
 import { ServicioHero } from "@/components/sections/servicios/servicio-hero";
-import { ServicioIncluye } from "@/components/sections/servicios/servicio-incluye";
-import { ServicioIntegraciones } from "@/components/sections/servicios/servicio-integraciones";
-import { ServicioPasos } from "@/components/sections/servicios/servicio-pasos";
 import { ServicioProblema } from "@/components/sections/servicios/servicio-problema";
+import { ServicioPrueba } from "@/components/sections/servicios/servicio-prueba";
 import { site } from "@/lib/content";
 import { getServicioBySlug, getServicioSlugs } from "@/lib/servicios";
 
@@ -56,18 +53,54 @@ export default async function ServicioPage({ params }: PageProps) {
   const servicio = getServicioBySlug(slug);
   if (!servicio) notFound();
 
+  /**
+   * Datos estructurados: el servicio y las preguntas frecuentes.
+   * Es lo que permite que un buscador (o un asistente) entienda qué se vende
+   * aquí sin adivinar con el HTML.
+   */
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: servicio.nombre,
+        serviceType: servicio.categoria,
+        description: servicio.resumen,
+        url: `${site.url}/servicios/${servicio.slug}`,
+        areaServed: "CO",
+        provider: {
+          "@type": "Organization",
+          name: site.name,
+          url: site.url,
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: servicio.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD generado en build, sin entrada de usuario
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <ServicioHero servicio={servicio} />
       <ServicioProblema servicio={servicio} />
       <ServicioCapacidades servicio={servicio} />
-      <ServicioPasos servicio={servicio} />
-      <ServicioIntegraciones servicio={servicio} />
-      <ServicioArquitectura servicio={servicio} />
-      <ServicioEvidencia servicio={servicio} />
-      <ServicioIncluye servicio={servicio} />
+      <ServicioPrueba servicio={servicio} />
       <ServicioFaqs servicio={servicio} />
       <ServicioCta servicio={servicio} />
+
+      <WhatsAppFab message={servicio.cta.whatsapp} source={servicio.slug} />
     </>
   );
 }

@@ -20,29 +20,29 @@ export const demandaConectada: Servicio = {
   hero: {
     headline: "Pauta que termina en tu operación, no en una hoja.",
     description:
-      "Diseñamos la demanda para lo que ya vendes y conectamos el anuncio con la conversación: el contacto entra a la base, recibe respuesta en minutos y queda medido desde el clic hasta la venta.",
+      "Diseñamos la demanda para lo que ya vendes y la conectamos con la operación: el contacto entra a la base, recibe respuesta en minutos y queda medido del clic a la venta.",
   },
   problema: [
     {
       title: "El lead que se enfría",
       before:
-        "Entran mensajes de cuatro plataformas distintas, cada uno con su bandeja, y quien contesta primero gana. Muchos nunca reciben respuesta.",
+        "Los mensajes llegan de cuatro plataformas distintas, cada una con su bandeja. Muchos nunca reciben respuesta.",
       after:
-        "Todo contacto cae en un mismo lugar, con su origen, y recibe respuesta rápido. Lo que no se atiende queda visible, con responsable.",
+        "Todo contacto cae en un mismo lugar, con su origen, y recibe respuesta rápido. Lo no atendido queda visible, con responsable.",
     },
     {
       title: "El anuncio que nadie mide de verdad",
       before:
-        "Se sabe cuánto se gastó y cuántos mensajes llegaron, pero no cuántos se convirtieron ni cuánto costó cada venta.",
+        "Se sabe cuánto se gastó, pero no cuántos mensajes se convirtieron ni cuánto costó cada venta.",
       after:
-        "El gasto se cruza con la conversación y con la venta: costo por contacto y por venta, campaña por campaña.",
+        "El gasto se cruza con la conversación y con la venta: costo por contacto y por venta.",
     },
     {
       title: "Las piezas que nunca alcanzan",
       before:
-        "Se produce un video al mes y se espera que rinda; cuando no rinde, no hay plan B ni tiempo para rehacerlo.",
+        "Sale un video al mes y se espera que rinda. Si no rinde, no hay plan B ni tiempo para rehacerlo.",
       after:
-        "Se producen varias versiones por ciclo, con el mismo mensaje y distinto gancho, y las que rinden se escalan.",
+        "Se producen varias versiones por ciclo, con el mismo mensaje y distinto gancho. Las que rinden se escalan.",
     },
   ],
   capacidades: [
@@ -50,25 +50,25 @@ export const demandaConectada: Servicio = {
       icon: "MessageSquare",
       title: "Captación hacia la base",
       description:
-        "Los contactos de Meta, Google y TikTok entran a tus tablas, no a un archivo suelto ni al teléfono de un vendedor.",
+        "Los contactos de Meta, Google y TikTok entran a tus tablas, no a un archivo ni al teléfono de un vendedor.",
     },
     {
       icon: "Send",
       title: "Respuesta en minutos",
       description:
-        "El primer contacto se atiende de inmediato, por WhatsApp, con lo que la persona buscaba a la vista del asesor.",
+        "El primer contacto se atiende de inmediato por WhatsApp, con lo que la persona buscaba a la vista del asesor.",
     },
     {
       icon: "BadgeDollarSign",
       title: "Medición hasta la venta",
       description:
-        "Inversión, contactos, conversaciones y cierres en un tablero. Si una campaña no cierra, se dice y se apaga.",
+        "Inversión, contactos y cierres en un tablero. Si una campaña no cierra, se dice y se apaga.",
     },
     {
       icon: "Sparkles",
       title: "Piezas en serie",
       description:
-        "Producción de versiones por ciclo —guion, video y pieza estática— para que la iteración no dependa de una sola creación.",
+        "Versiones por ciclo (guion, video y pieza estática) para que la iteración no dependa de una sola creación.",
     },
     {
       icon: "Shuffle",
@@ -80,7 +80,7 @@ export const demandaConectada: Servicio = {
       icon: "Database",
       title: "Datos para decidir",
       description:
-        "Qué anuncio trae a quién, qué preguntan y dónde se cae la conversación. Es la información con la que se ajusta la pauta y la oferta.",
+        "Qué anuncio trae a quién, qué preguntan y dónde se cae la conversación. Con eso se ajustan pauta y oferta.",
     },
   ],
   pasos: [
@@ -139,7 +139,7 @@ export const demandaConectada: Servicio = {
     {
       title: "La inversión es del cliente, directa a la plataforma",
       description:
-        "El presupuesto se paga a Meta, Google o TikTok. Nosotros administramos las campañas y reportamos; no intermediamos el gasto ni cobramos por encima de la pauta.",
+        "El presupuesto se paga a Meta, Google o TikTok. Nosotros administramos las campañas y reportamos, sin cobrar por encima de la pauta.",
     },
     {
       title: "Un solo destino para todos los contactos",
@@ -154,7 +154,7 @@ export const demandaConectada: Servicio = {
     {
       title: "Tope de inversión acordado",
       description:
-        "El contrato fija el tope mensual de pauta y de consumo. Si hay que pasarlo, se pide antes, no se descubre en la factura.",
+        "El contrato fija el tope mensual de pauta y de consumo. Si hay que pasarlo, se pide antes y no se descubre en la factura.",
     },
   ],
   evidencia: [
@@ -192,15 +192,15 @@ export const demandaConectada: Servicio = {
   faqs: [
     {
       q: "¿Manejan nuestras cuentas publicitarias?",
-      a: "Sí, se administran con permisos de socio sobre tus cuentas, o se trabaja desde las de la casa cuando el cliente lo prefiere. En cualquier caso, la facturación de la pauta es tuya y va directa a la plataforma.",
+      a: "Sí, se administran con permisos de socio sobre tus cuentas, o desde las de la casa cuando el cliente lo prefiere. La facturación de la pauta es tuya y va directa a la plataforma.",
     },
     {
       q: "¿Garantizan ventas?",
-      a: "No. Garantizamos un proceso medible: campañas conectadas, respuesta rápida y un tablero que muestra hasta dónde llega cada peso. El resultado depende también de la oferta, el precio y la operación comercial, y eso se revisa desde el diagnóstico.",
+      a: "No. Garantizamos un proceso medible: campañas conectadas, respuesta rápida y un tablero que muestra hasta dónde llega cada peso. El resultado también depende de la oferta, el precio y la operación comercial.",
     },
     {
       q: "¿En cuánto tiempo se ve algo?",
-      a: "Los primeros contactos llegan en la primera semana de campaña; el tiempo para juzgar qué funciona es de uno a dos meses, porque hay que dejar que las plataformas aprendan y comparar piezas.",
+      a: "Los primeros contactos llegan en la primera semana de campaña; el tiempo para juzgar qué funciona es de uno a dos meses, porque las plataformas deben aprender y hay que comparar piezas.",
     },
     {
       q: "¿Esto sirve si ya tengo quien maneje la pauta?",
@@ -210,7 +210,7 @@ export const demandaConectada: Servicio = {
   cta: {
     titulo: "Hablemos de lo que pasa después del clic.",
     descripcion:
-      "Revisamos tu inversión actual y qué ocurre con los contactos que llegan. Te llevas el diagnóstico del embudo y la propuesta de medición, aunque la pauta la sigas manejando tú.",
+      "Revisamos tu inversión actual y qué pasa con los contactos que llegan. Te llevas el diagnóstico del embudo y la propuesta de medición, aunque la pauta la sigas manejando tú.",
     whatsapp: "Hola Prometheus, quiero revisar mi generación de demanda.",
   },
 };

@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { site } from "@/lib/content";
@@ -80,7 +79,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         {children}
-        <Analytics />
       </body>
     </html>
   );

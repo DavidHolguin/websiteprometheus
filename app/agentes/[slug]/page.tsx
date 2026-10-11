@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { WhatsAppFab } from "@/components/primitives/whatsapp-fab";
 import { AgentCapabilities } from "@/components/sections/agents/agent-capabilities";
 import { AgentCta } from "@/components/sections/agents/agent-cta";
 import { AgentHero } from "@/components/sections/agents/agent-hero";
@@ -7,7 +8,6 @@ import { AgentIntegrations } from "@/components/sections/agents/agent-integratio
 import { AgentMetrics } from "@/components/sections/agents/agent-metrics";
 import { AgentTeamMembers } from "@/components/sections/agents/agent-team-members";
 import { AgentUseCases } from "@/components/sections/agents/agent-use-cases";
-import { AgentWorkflow } from "@/components/sections/agents/agent-workflow";
 import { getAgentBySlug, getAllSlugs } from "@/lib/agents";
 import { site } from "@/lib/content";
 
@@ -59,16 +59,24 @@ export default async function AgentPage({ params }: PageProps) {
   const agent = getAgentBySlug(slug);
   if (!agent) notFound();
 
+  /**
+   * Sin la sección de «cómo trabaja» (el paso a paso): la decisión del dueño es
+   * que las landings no expliquen el proceso por fases. Queda el mismo bloque
+   * resumido en una línea al final del cierre.
+   */
+  const waMessage = `Hola Prometheus, me interesa el ${agent.name}. ¿Cómo arrancamos?`;
+
   return (
     <>
       <AgentHero agent={agent} />
       <AgentCapabilities agent={agent} />
       <AgentIntegrations agent={agent} />
-      <AgentWorkflow agent={agent} />
       {agent.type === "team" && <AgentTeamMembers agent={agent} />}
       <AgentUseCases agent={agent} />
       <AgentMetrics agent={agent} />
       <AgentCta agent={agent} />
+
+      <WhatsAppFab message={waMessage} source={agent.slug} />
     </>
   );
 }

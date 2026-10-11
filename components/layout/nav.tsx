@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -9,9 +10,21 @@ import { cn } from "@/lib/utils";
 import { Container } from "./container";
 import { Logo } from "./logo";
 
+/**
+ * Encabezado fijo del sitio.
+ *
+ * En una landing de servicio (`/servicios/<slug>`) el menú cambia: en vez de
+ * mandar al visitante a otra página, lo lleva a las secciones de la que está
+ * leyendo — que es lo que necesita en el tráfico que llega de publicidad.
+ */
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const enLanding = /^\/servicios\/[^/]+$/.test(pathname ?? "");
+  const links = enLanding ? nav.landing.links : nav.links;
+  const cta = enLanding ? nav.landing.cta : nav.cta;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -23,9 +36,9 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-all duration-300 ease-out",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out",
         scrolled
-          ? "bg-background/70 backdrop-blur-xl border-b border-border"
+          ? "bg-background/75 backdrop-blur-xl border-b border-border"
           : "border-b border-transparent",
       )}
     >
@@ -33,7 +46,7 @@ export function Nav() {
         <Logo />
 
         <ul className="hidden md:flex items-center gap-1">
-          {nav.links.map((link) => (
+          {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -47,7 +60,7 @@ export function Nav() {
 
         <div className="hidden md:block">
           <Button asChild size="sm">
-            <a href={nav.cta.href}>{nav.cta.label}</a>
+            <a href={cta.href}>{cta.label}</a>
           </Button>
         </div>
 
@@ -64,7 +77,7 @@ export function Nav() {
           <SheetContent side="top" className="p-8 pt-24 border-x-0 rounded-b-3xl">
             <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
             <ul className="flex flex-col">
-              {nav.links.map((link) => (
+              {links.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -79,8 +92,8 @@ export function Nav() {
             </ul>
             <div className="mt-8">
               <Button size="lg" className="w-full" asChild>
-                <a href={nav.cta.href} onClick={() => setOpen(false)}>
-                  {nav.cta.label}
+                <a href={cta.href} onClick={() => setOpen(false)}>
+                  {cta.label}
                 </a>
               </Button>
             </div>

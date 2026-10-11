@@ -81,6 +81,39 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Los enlaces internos (#contacto) no quedan debajo del encabezado fijo. */
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+    /* Móvil: sin destello azul al tocar y sin el retardo de 300 ms. */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Barras de scroll del sistema, vestidas con la paleta (no con las del navegador). */
+  @supports (scrollbar-width: thin) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border-strong) var(--color-background);
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border: 2px solid var(--color-background);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
   }
 
   body {
@@ -197,6 +230,41 @@
 
 @utility animate-node-pulse {
   animation: node-pulse 2.6s var(--ease-out-expo) infinite;
+}
+
+/* ── Revelado al hacer scroll, sin JavaScript ─────────────────
+   Se anima con la línea de tiempo de scroll nativa (Chrome, Edge, Safari 26+).
+   Donde no hay soporte, el contenido se ve: el CSS nunca lo esconde.
+   Esto reemplaza el `whileInView` de Motion en las landings: mismo gesto,
+   cero JavaScript y ningún riesgo de dejar la página en blanco. */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in 1s var(--ease-out-expo) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+  }
+}
+
+/* Impresión y capturas: nunca una página a medias. */
+@media print {
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ── Atmospheric grain overlay (inline data URI) ─── */

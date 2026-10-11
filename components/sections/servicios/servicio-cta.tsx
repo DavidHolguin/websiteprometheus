@@ -1,80 +1,73 @@
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
 import { EmberGlow } from "@/components/primitives/ember-glow";
 import { GrainOverlay } from "@/components/primitives/grain-overlay";
 import { LeadForm } from "@/components/primitives/lead-form";
+import { WaLink } from "@/components/primitives/wa-link";
 import { WhatsAppIcon } from "@/components/primitives/whatsapp-icon";
 import { Button } from "@/components/ui/button";
-import { whatsappUrl } from "@/lib/content";
 import type { Servicio } from "@/lib/servicios";
 
 interface ServicioCtaProps {
   servicio: Servicio;
 }
 
+/**
+ * Cierre: las dos formas de contactar, lado a lado.
+ *
+ * WhatsApp primero (es la vía rápida y ya está validada) y el formulario al
+ * lado, visible sin scroll en escritorio. Debajo va el plan por fases en una
+ * línea por etapa: es lo que se preguntaba en la sección de «tres pasos», sin
+ * gastar una sección entera en explicarlo.
+ */
 export function ServicioCta({ servicio }: ServicioCtaProps) {
   const source = `${servicio.nombre} (${servicio.categoria})`;
 
   return (
     <section
       id="contacto"
-      className="relative isolate border-t border-border overflow-hidden"
+      className="relative isolate scroll-mt-24 overflow-hidden border-t border-border"
       aria-labelledby="servicio-cta-title"
     >
       <EmberGlow intensity="strong" position="center" className="-z-10" />
       <GrainOverlay />
 
-      <Container className="relative py-28 sm:py-32 lg:py-40">
-        <Reveal>
-          <div className="flex flex-col items-center gap-8 text-center">
-            <div className="inline-flex items-center gap-2.5">
-              <span
-                aria-hidden
-                className="h-1.5 w-1.5 rounded-full bg-ember shadow-[0_0_14px_3px_rgba(26,115,232,0.7)]"
-              />
-              <span className="text-xs font-mono uppercase tracking-[0.22em] text-ember">
-                Listo para empezar
-              </span>
-            </div>
-
+      <Container className="relative py-16 sm:py-20 lg:py-28">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-16">
+          <div className="reveal flex flex-col items-start gap-5">
             <h2
               id="servicio-cta-title"
-              className="text-balance font-semibold tracking-tighter text-foreground leading-[0.97]"
-              style={{ fontSize: "clamp(2.25rem, 5.5vw + 0.5rem, 4.5rem)" }}
+              className="text-balance font-semibold tracking-tighter leading-[1.02] text-foreground"
+              style={{ fontSize: "clamp(2rem, 5vw + 0.75rem, 3.5rem)" }}
             >
               {servicio.cta.titulo}
             </h2>
 
-            <p className="max-w-2xl text-pretty text-base sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="max-w-[46ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               {servicio.cta.descripcion}
             </p>
 
-            <div className="mt-2 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <a
-                  href={whatsappUrl(servicio.cta.whatsapp)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <WhatsAppIcon className="h-4 w-4" />
-                  Escribir por WhatsApp
-                  <ArrowRight />
-                </a>
-              </Button>
-            </div>
+            <Button asChild size="lg" className="mt-1 w-full sm:w-auto">
+              <WaLink message={servicio.cta.whatsapp} origen="contacto" servicio={servicio.slug}>
+                <WhatsAppIcon className="h-4 w-4" />
+                Escribir por WhatsApp
+              </WaLink>
+            </Button>
 
-            <div className="mt-6 flex w-full max-w-xl items-center gap-3">
-              <span aria-hidden className="h-px flex-1 bg-border" />
-              <span className="text-xs font-mono uppercase tracking-[0.18em] text-subtle">
-                o déjanos tu contacto
-              </span>
-              <span aria-hidden className="h-px flex-1 bg-border" />
-            </div>
-
-            <LeadForm source={source} className="w-full max-w-xl text-left" />
+            <ul className="mt-3 w-full max-w-md divide-y divide-border border-t border-border">
+              {servicio.pasos.map((paso) => (
+                <li key={paso.numero} className="flex items-baseline justify-between gap-4 py-3">
+                  <span className="text-pretty text-sm text-foreground/85">{paso.title}</span>
+                  <span className="shrink-0 text-xs text-subtle">{paso.duration}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </Reveal>
+
+          <Reveal>
+            <LeadForm source={source} />
+          </Reveal>
+        </div>
       </Container>
     </section>
   );

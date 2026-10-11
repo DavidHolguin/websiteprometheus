@@ -20,29 +20,29 @@ export const ventasWhatsapp: Servicio = {
   hero: {
     headline: "Tu WhatsApp deja de ser un chat y se vuelve mostrador.",
     description:
-      "Conectamos el número de la empresa a la API oficial de WhatsApp y al sistema donde vive tu información: precios, inventario, cartera, agenda. La conversación cotiza, cobra y responde el estado de un pedido; el equipo entra cuando la conversación lo merece, con todo el contexto.",
+      "Conectamos el WhatsApp de la empresa a la API oficial y a tu sistema: precios, inventario, cartera, agenda. Cotiza, cobra y responde el estado; el equipo entra cuando hace falta.",
   },
   problema: [
     {
       title: "El pedido que se pierde en el chat",
       before:
-        "El cliente escribe a las 8 de la noche, nadie contesta, y a la mañana siguiente el mensaje quedó debajo de otros cuarenta.",
+        "El cliente escribe a las 8 de la noche, nadie contesta y a la mañana siguiente el mensaje quedó bajo otros cuarenta.",
       after:
         "La conversación arranca sola, cotiza con los precios reales y queda registrada con su origen y su responsable.",
     },
     {
       title: "La pregunta que interrumpe todo",
       before:
-        "«¿Tienen disponible?», «¿cuánto vale?», «¿ya salió mi pedido?»: la misma respuesta, escrita a mano, por tres personas distintas.",
+        "«¿Tienen disponible?», «¿cuánto vale?», «¿ya salió mi pedido?»: la misma respuesta escrita a mano por tres personas.",
       after:
-        "Disponibilidad, precio y estado se consultan en el sistema en tiempo real. La respuesta sale sola y siempre coincide con la operación.",
+        "Disponibilidad, precio y estado se consultan en el sistema en tiempo real. La respuesta sale sola y coincide con la operación.",
     },
     {
       title: "El cobro que se persigue a mano",
       before:
-        "Se cierra la venta y después alguien pasa el dato de pago, confirma el abono y anota en una hoja quién pagó y quién no.",
+        "Se cierra la venta y alguien pasa el dato de pago, confirma el abono y anota en una hoja quién pagó y quién no.",
       after:
-        "El cobro sale en la misma conversación, con su confirmación, su comprobante y su registro. El que no pagó queda visible, sin perseguir a nadie.",
+        "El cobro sale en la misma conversación, con su confirmación y su registro. El que no pagó queda visible, sin perseguirlo.",
     },
   ],
   capacidades: [
@@ -50,19 +50,19 @@ export const ventasWhatsapp: Servicio = {
       icon: "Calculator",
       title: "Cotización con precios reales",
       description:
-        "Consulta tu catálogo, tus reglas de descuento y tu inventario; no inventa precios ni promete disponibilidad que no existe.",
+        "Consulta tu catálogo, tus descuentos y tu inventario; no inventa precios ni promete lo que no hay.",
     },
     {
       icon: "Wallet",
       title: "Cobro y confirmación",
       description:
-        "Enlace de pago o instrucciones de transferencia en el mismo hilo, con confirmación del abono y comprobante.",
+        "Enlace de pago o datos de transferencia en el mismo hilo, con confirmación del abono y comprobante.",
     },
     {
       icon: "Repeat2",
       title: "Estado del pedido",
       description:
-        "El cliente pregunta y recibe el estado que está en el sistema: en producción, despachado, en ruta, entregado.",
+        "El cliente pregunta y recibe el estado del sistema: en producción, despachado, en ruta, entregado.",
     },
     {
       icon: "CalendarCheck",
@@ -74,13 +74,13 @@ export const ventasWhatsapp: Servicio = {
       icon: "Headphones",
       title: "Paso a una persona",
       description:
-        "Cuando la conversación sale del libreto, entra una persona con el historial completo y el bot se calla en ese hilo.",
+        "Si la conversación sale del libreto, entra una persona con todo el historial y el flujo se calla en ese hilo.",
     },
     {
       icon: "Database",
       title: "Cada conversación, dato",
       description:
-        "Los mensajes quedan estructurados y consultables: qué se preguntó, qué se cotizó, qué se cerró y dónde se cayó.",
+        "Los mensajes quedan estructurados y consultables: qué se preguntó, qué se cotizó y dónde se cayó la venta.",
     },
   ],
   pasos: [
@@ -141,7 +141,7 @@ export const ventasWhatsapp: Servicio = {
     {
       title: "API oficial, no un celular colgado",
       description:
-        "El número se conecta a WhatsApp Business Cloud API. Deja de depender de un teléfono encendido en una oficina y de las reglas de un celular.",
+        "El número se conecta a WhatsApp Business Cloud API. Ya no depende de un teléfono encendido en una oficina.",
     },
     {
       title: "El agente consulta, no adivina",
@@ -151,33 +151,33 @@ export const ventasWhatsapp: Servicio = {
     {
       title: "Una base con reglas por cliente",
       description:
-        "La información vive en Postgres con aislamiento por fila y roles. Cada quien ve lo suyo, y queda registro de quién consultó qué.",
+        "La información vive en Postgres con aislamiento por fila y roles. Cada quien ve lo suyo y queda registro de quién consultó qué.",
     },
     {
       title: "Trazabilidad de cada decisión",
       description:
-        "Se guarda qué se respondió, con qué dato y en qué paso del flujo. Un cliente que reclama se resuelve mirando la conversación, no discutiendo.",
+        "Se guarda qué se respondió, con qué dato y en qué paso del flujo. Un cliente que reclama se resuelve mirando la conversación.",
     },
     {
       title: "Interruptor humano",
       description:
-        "El equipo puede tomar cualquier conversación desde la bandeja; el flujo se apaga en ese hilo y vuelve a encenderse cuando lo sueltan.",
+        "El equipo puede tomar cualquier conversación desde la bandeja; el flujo se apaga en ese hilo y vuelve cuando lo sueltan.",
     },
   ],
   evidencia: [
     {
       sector: "Distribución y última milla",
       situacion:
-        "La operación recibía por WhatsApp la misma pregunta sobre el estado de cada pedido, y el dato estaba en la hoja de despacho.",
+        "La operación recibía por WhatsApp la misma pregunta sobre el estado de cada pedido, con el dato en la hoja de despacho.",
       resultado:
-        "El estado del pedido se consulta en la operación y sale por la conversación; el equipo dejó de copiar y pegar y ahora atiende excepciones.",
+        "El estado del pedido se consulta en la operación y sale por la conversación; el equipo dejó de copiar y pegar.",
     },
     {
       sector: "Comercialización inmobiliaria",
       situacion:
-        "Los mensajes de campañas llegaban al teléfono del asesor y desaparecían entre conversaciones personales.",
+        "Los mensajes de campañas llegaban al teléfono del asesor y se perdían entre conversaciones personales.",
       resultado:
-        "Cada contacto entra a una bandeja con su origen, su responsable y su siguiente acción; los mensajes de anuncios se cruzan con el CRM.",
+        "Cada contacto entra a una bandeja con su origen, su responsable y su siguiente acción; los mensajes de los anuncios se cruzan con el CRM.",
     },
     {
       sector: "Servicios con cobro recurrente",
@@ -200,11 +200,11 @@ export const ventasWhatsapp: Servicio = {
   faqs: [
     {
       q: "¿Esto reemplaza a mi equipo comercial?",
-      a: "No. Le quita el copiar y pegar. El flujo resuelve lo repetitivo —disponibilidad, precio, estado, cobro— y pasa a una persona todo lo que requiere criterio, con el historial completo a la vista.",
+      a: "No. Le quita el copiar y pegar. El flujo resuelve lo repetitivo —disponibilidad, precio, estado, cobro— y pasa a una persona lo que requiere criterio, con el historial completo.",
     },
     {
       q: "¿Puedo seguir usando mi número de WhatsApp de siempre?",
-      a: "Sí, pero hay que saber una cosa antes de decidir: un número que se conecta a la API oficial deja de funcionar en la aplicación normal de WhatsApp. Si es el número personal de alguien, se usa otro número para el negocio.",
+      a: "Sí, pero hay algo que saber antes de decidir: un número conectado a la API oficial deja de funcionar en la app normal de WhatsApp. Si es el personal de alguien, se usa otro para el negocio.",
     },
     {
       q: "¿Qué pasa cuando el flujo no sabe qué responder?",
@@ -216,13 +216,13 @@ export const ventasWhatsapp: Servicio = {
     },
     {
       q: "¿Dónde quedan los datos de mis clientes?",
-      a: "En infraestructura tuya o en la nuestra, nunca en un servicio ajeno sin control. Las conversaciones y las fichas se guardan en bases con aislamiento por cliente y reglas de acceso.",
+      a: "En infraestructura tuya o en la nuestra, nunca en un servicio ajeno sin control. Las conversaciones y las fichas se guardan en bases con aislamiento por cliente.",
     },
   ],
   cta: {
     titulo: "Pongamos tu WhatsApp a trabajar.",
     descripcion:
-      "Una conversación de treinta minutos sobre cómo vendes hoy y qué se puede automatizar sin romper nada. Te llevas el diagnóstico de viabilidad y el plan por fases, entres o no con nosotros.",
+      "Una conversación de treinta minutos sobre cómo vendes hoy y qué se puede automatizar sin romper nada. Te llevas el diagnóstico de viabilidad y el plan por fases, entres o no.",
     whatsapp: "Hola Prometheus, quiero saber cómo automatizar mi venta por WhatsApp.",
   },
 };
