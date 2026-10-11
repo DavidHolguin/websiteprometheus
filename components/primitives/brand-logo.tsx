@@ -69,6 +69,8 @@ interface TextBadge {
 }
 
 const TEXT_BADGES: Record<string, TextBadge> = {
+  // Buscadores (Simple Icons retiró las marcas de Microsoft de su catálogo)
+  bing: { text: "Bing", accent: "258FFB" },
   // Microsoft suite
   microsoftteams: { text: "Teams", accent: "5B5FC7" },
   microsoftexcel: { text: "Excel", accent: "0F7B43" },
