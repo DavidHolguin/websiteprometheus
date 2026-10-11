@@ -8,12 +8,12 @@ import { WhatsAppIcon } from "@/components/primitives/whatsapp-icon";
 import { PortafolioGrid } from "@/components/sections/servicios/portafolio-grid";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/content";
-import { servicios } from "@/lib/servicios";
+import { getServiciosDeEntrada, lineasEnPalabras } from "@/lib/servicios";
 
 export const metadata: Metadata = {
   title: "Servicios",
   description:
-    "Qué hacemos: ventas por WhatsApp, automatización documental, plataformas de operación y generación de demanda. Cuatro líneas, un mismo principio — se entrega funcionando.",
+    "Qué hacemos: ventas por WhatsApp, sitios web, operación documental, visibilidad en buscadores e IA, tiendas virtuales, plataformas de operación y generación de demanda. Cada línea con su landing y su mensaje — se entrega funcionando.",
   alternates: { canonical: "/servicios" },
   openGraph: {
     type: "website",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: `${site.url}/servicios`,
     title: `Servicios — ${site.name}`,
     description:
-      "Ventas por WhatsApp, automatización documental, plataformas de operación y generación de demanda conectada a la operación.",
+      "Ventas por WhatsApp, sitios web, operación documental, visibilidad en buscadores e IA, tiendas virtuales, plataformas de operación y demanda conectada a la operación.",
     siteName: site.name,
   },
 };
@@ -30,12 +30,21 @@ const MENSAJE_INDEX =
   "Hola Prometheus, vengo del portafolio de servicios y quiero saber por dónde empezar.";
 
 export default function ServiciosPage() {
+  const lineas = lineasEnPalabras();
+  const entradas = getServiciosDeEntrada().map((servicio) => servicio.nombre);
+  const ultima = entradas.pop();
+
   return (
     <>
       <section className="relative isolate pt-28 pb-8 sm:pt-36">
         <Container>
           <SectionHeading
-            title={<span id="servicios-title">Cuatro líneas de trabajo.</span>}
+            title={
+              <span id="servicios-title">
+                {lineas.charAt(0).toUpperCase()}
+                {lineas.slice(1)} líneas de trabajo.
+              </span>
+            }
             description="No vendemos «inteligencia artificial»: vendemos el trabajo que deja de hacerse a mano. Cada línea se contrata por su cuenta y se entrega por fases, con un diagnóstico corto antes de tocar nada."
           />
         </Container>
@@ -48,9 +57,9 @@ export default function ServiciosPage() {
           <div className="flex flex-col items-start gap-5 border-t border-border pt-8">
             <p className="max-w-[58ch] text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
               ¿No sabes por dónde empezar?{" "}
-              <strong className="font-medium text-foreground">{servicios[0].nombre}</strong> y{" "}
-              <strong className="font-medium text-foreground">{servicios[1].nombre}</strong> son las
-              que resuelven más rápido y con menos riesgo. En una conversación de treinta minutos te
+              <strong className="font-medium text-foreground">{entradas.join(", ")}</strong> y{" "}
+              <strong className="font-medium text-foreground">{ultima}</strong> son las que
+              resuelven más rápido y con menos riesgo. En una conversación de treinta minutos te
               decimos cuál aplica a tu operación, y si no aplica ninguna, también.
             </p>
 

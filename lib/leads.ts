@@ -39,6 +39,35 @@ const CHATWOOT_INBOX = Number(process.env.CHATWOOT_INBOX_ID ?? "2");
 /** Primera etapa del embudo de servicios de la casa (`opportunity.stage`). */
 const ETAPA_NUEVA = "NUEVO";
 
+/**
+ * Las opciones del campo «origen» de la oportunidad (select en el Twenty de la
+ * casa, creado el 12-oct-2026). El nombre de la oportunidad sigue llevando el
+ * texto legible; esto es lo que permite **agrupar y contar** por línea: sin
+ * campo, el origen era solo texto y no se podía informar.
+ */
+const ORIGENES: Record<string, string> = {
+  "Ventas por WhatsApp": "SITIO_VENTAS_WHATSAPP",
+  "Sitios web": "SITIO_SITIOS_WEB",
+  "Operación documental": "SITIO_OPERACION_DOCUMENTAL",
+  "Visibilidad en buscadores e IA": "SITIO_GEO",
+  "Tiendas virtuales": "SITIO_TIENDAS_VIRTUALES",
+  "Plataformas de operación": "SITIO_PLATAFORMAS_OPERACION",
+  "Demanda conectada": "SITIO_DEMANDA_CONECTADA",
+};
+
+/**
+ * Traduce el texto de origen que manda la página («Sitios web (Presencia que
+ * captura)») al valor del select. Lo que no se reconoce cae en `OTRO`: preferimos
+ * un registro honesto a inventar la línea.
+ */
+export function origenComoOpcion(origen: string): string {
+  const limpio = origen.split(" (")[0].trim();
+  if (ORIGENES[limpio]) return ORIGENES[limpio];
+  if (/^(agente|equipo)/i.test(limpio)) return "SITIO_AGENTES";
+  if (/home/i.test(limpio)) return "SITIO_HOME";
+  return "OTRO";
+}
+
 export interface Telefono {
   /** Número nacional sin prefijo (lo que espera Twenty). */
   nacional: string;
@@ -154,14 +183,15 @@ export async function altaEnTwenty(
 
     const telefonoTexto = datos.telefono?.e164 ?? datos.telefonoCrudo;
     const con = await graphql(
-      `mutation($nombre:String!,$etapa:String!,$contacto:UUID){
+      `mutation($nombre:String!,$etapa:String!,$contacto:UUID,$origen:String){
          createOpportunity(data:{
-           name:$nombre, stage:$etapa, pointOfContactId:$contacto
+           name:$nombre, stage:$etapa, pointOfContactId:$contacto, origen:$origen
          }){ id } }`,
       {
         nombre: `${datos.nombre} · ${datos.origen}${datos.telefono ? "" : ` (${telefonoTexto})`}`,
         etapa: ETAPA_NUEVA,
         contacto: persona.id,
+        origen: origenComoOpcion(datos.origen),
       },
     );
     const oportunidad = con.createOpportunity as { id?: string } | undefined;

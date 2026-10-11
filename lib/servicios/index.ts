@@ -1,6 +1,9 @@
 import { demandaConectada } from "./demanda-conectada";
+import { geo } from "./geo";
 import { operacionDocumental } from "./operacion-documental";
 import { plataformasOperacion } from "./plataformas-operacion";
+import { sitiosWeb } from "./sitios-web";
+import { tiendasVirtuales } from "./tiendas-virtuales";
 import type { Servicio } from "./types";
 import { ventasWhatsapp } from "./ventas-whatsapp";
 
@@ -16,10 +19,36 @@ import { ventasWhatsapp } from "./ventas-whatsapp";
  */
 export const servicios: Servicio[] = [
   ventasWhatsapp,
+  sitiosWeb,
   operacionDocumental,
+  geo,
+  tiendasVirtuales,
   plataformasOperacion,
   demandaConectada,
 ];
+
+/**
+ * El número de líneas escrito en palabras («siete»), para los titulares que
+ * las cuentan. Se calcula del registry: si mañana entra una línea nueva, el
+ * texto del home y del índice no mienten.
+ */
+const EN_PALABRAS = [
+  "cero",
+  "una",
+  "dos",
+  "tres",
+  "cuatro",
+  "cinco",
+  "seis",
+  "siete",
+  "ocho",
+  "nueve",
+  "diez",
+];
+
+export function lineasEnPalabras(): string {
+  return EN_PALABRAS[servicios.length] ?? String(servicios.length);
+}
 
 export function getServicioBySlug(slug: string): Servicio | undefined {
   return servicios.find((s) => s.slug === slug);

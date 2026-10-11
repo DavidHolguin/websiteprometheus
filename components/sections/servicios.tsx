@@ -5,13 +5,16 @@ import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { SectionHeading } from "@/components/primitives/section-heading";
 import { ServicioCard } from "@/components/primitives/servicio-card";
 import { Button } from "@/components/ui/button";
-import { servicios } from "@/lib/servicios";
+import { lineasEnPalabras, servicios } from "@/lib/servicios";
 
 /**
- * Resumen del portafolio en el home: las cuatro líneas, cada una con su landing.
+ * Resumen del portafolio en el home: las líneas, cada una con su landing.
  * El detalle vive en `/servicios/<slug>`.
  */
 export function Servicios() {
+  const lineas = lineasEnPalabras();
+  const titulo = `${lineas.charAt(0).toUpperCase()}${lineas.slice(1)} formas de trabajar con nosotros.`;
+
   return (
     <section
       id="servicios"
@@ -22,7 +25,7 @@ export function Servicios() {
         <Reveal>
           <SectionHeading
             eyebrow="Servicios"
-            title={<span id="servicios-title">Cuatro formas de trabajar con nosotros.</span>}
+            title={<span id="servicios-title">{titulo}</span>}
             description="Cada línea se contrata sola, arranca con un diagnóstico corto y se entrega por fases. No vendemos «inteligencia artificial»: vendemos el trabajo que deja de hacerse a mano."
           />
         </Reveal>
