@@ -37,7 +37,7 @@ export function whatsappUrl(message: string): string {
 export const nav = {
   links: [
     { href: "/agentes", label: "Agentes" },
-    { href: "/#servicios", label: "Servicios" },
+    { href: "/servicios", label: "Servicios" },
     { href: "/#proceso", label: "Proceso" },
     { href: "/#manifiesto", label: "Manifiesto" },
     { href: "/#contacto", label: "Contacto" },
@@ -71,43 +71,6 @@ export const trustStrip = {
     { slug: "redis", name: "Redis" },
     { slug: "cloudflare", name: "Cloudflare" },
     { slug: "huggingface", name: "Hugging Face" },
-  ],
-};
-
-export const servicios = {
-  eyebrow: "Servicios",
-  title: "Dos formas de empezar.",
-  description:
-    "Cada engagement se ajusta a tu madurez técnica y al riesgo que estás dispuesto a tomar. Sin paquetes preempaquetados.",
-  items: [
-    {
-      slug: "agentes-a-medida",
-      icon: "agent",
-      title: "Agentes a medida",
-      description:
-        "Diseñamos, entrenamos y desplegamos agentes específicos para los flujos donde tu equipo pierde más tiempo.",
-      capabilities: [
-        "Diagnóstico de procesos automatizables",
-        "Orquestación multi-modelo con AI Gateway",
-        "Integración con tus herramientas internas",
-        "Observabilidad y trazabilidad por defecto",
-      ],
-      cta: "Ver cómo lo hacemos",
-    },
-    {
-      slug: "integracion-empresarial",
-      icon: "stack",
-      title: "Integración IA empresarial",
-      description:
-        "Conectamos modelos de lenguaje y agentes con tus sistemas existentes — ERP, CRM, data warehouses, herramientas internas.",
-      capabilities: [
-        "RAG sobre tu base de conocimiento",
-        "Pipelines de ingesta y normalización",
-        "Seguridad, RBAC y data residency",
-        "Migración progresiva, sin big bang",
-      ],
-      cta: "Ver cómo lo hacemos",
-    },
   ],
 };
 
@@ -261,7 +224,7 @@ export const footer = {
   tagline: "Agentes IA e integraciones empresariales hechas en LATAM.",
   copyright: `© ${new Date().getFullYear()} Prometheus Labs. Hecho con fuego en Colombia.`,
   links: [
-    { label: "Servicios", href: "#servicios" },
+    { label: "Servicios", href: "/servicios" },
     { label: "Proceso", href: "#proceso" },
     { label: "Manifiesto", href: "#manifiesto" },
     { label: "Contacto", href: "#contacto" },

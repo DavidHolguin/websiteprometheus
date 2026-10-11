@@ -1,15 +1,16 @@
-import { Bot, Network } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { SectionHeading } from "@/components/primitives/section-heading";
-import { ServiceCard } from "@/components/primitives/service-card";
-import { servicios } from "@/lib/content";
+import { ServicioCard } from "@/components/primitives/servicio-card";
+import { Button } from "@/components/ui/button";
+import { servicios } from "@/lib/servicios";
 
-const iconMap = {
-  agent: <Bot className="h-6 w-6" strokeWidth={1.5} />,
-  stack: <Network className="h-6 w-6" strokeWidth={1.5} />,
-} as const;
-
+/**
+ * Resumen del portafolio en el home: las cuatro líneas, cada una con su landing.
+ * El detalle vive en `/servicios/<slug>`.
+ */
 export function Servicios() {
   return (
     <section
@@ -20,24 +21,28 @@ export function Servicios() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow={servicios.eyebrow}
-            title={<span id="servicios-title">Dos formas de empezar.</span>}
-            description={servicios.description}
+            eyebrow="Servicios"
+            title={<span id="servicios-title">Cuatro formas de trabajar con nosotros.</span>}
+            description="Cada línea se contrata sola, arranca con un diagnóstico corto y se entrega por fases. No vendemos «inteligencia artificial»: vendemos el trabajo que deja de hacerse a mano."
           />
         </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 md:gap-8">
-          {servicios.items.map((service) => (
-            <ServiceCard
-              key={service.slug}
-              icon={iconMap[service.icon as keyof typeof iconMap]}
-              title={service.title}
-              description={service.description}
-              capabilities={service.capabilities}
-              cta={service.cta}
-            />
+        <Stagger as="ul" className="mt-16 grid gap-5 md:grid-cols-2 lg:gap-7">
+          {servicios.map((servicio) => (
+            <StaggerItem as="li" key={servicio.slug} className="h-full">
+              <ServicioCard servicio={servicio} />
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
+
+        <Reveal className="mt-12">
+          <Button asChild variant="outline" size="lg">
+            <a href="/servicios">
+              Ver el portafolio completo
+              <ArrowRight className="ml-1" />
+            </a>
+          </Button>
+        </Reveal>
       </Container>
     </section>
   );
