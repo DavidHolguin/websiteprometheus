@@ -253,7 +253,9 @@
     .reveal {
       animation: reveal-in 1s var(--ease-out-expo) both;
       animation-timeline: view();
-      animation-range: entry 0% entry 80%;
+      /* Termina cuando el elemento ha entrado un tercio: si no, una sección
+         alta se queda a medio revelar mientras se lee entera. */
+      animation-range: entry 0% entry 30%;
     }
   }
 }
